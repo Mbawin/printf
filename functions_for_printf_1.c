@@ -17,7 +17,7 @@ int print_unsigned_number(char buffer[], va_list types,
 	int a = BUFF_SIZE - 2;
 	unsigned long int number = va_arg(types, unsigned long int);
 
-	number = convert_size_unsgnd(number, size);
+	number = convert_size_unsignd(number, size);
 
 	if (number == 0)
 		buffer[a--] = '0';
@@ -32,7 +32,7 @@ int print_unsigned_number(char buffer[], va_list types,
 
 	a++;
 
-	return (write_unsgnd(0, a, buffer, precision, flags, size, width));
+	return (write_unsigned(0, a, buffer, precision, flags, size, width));
 }
 
 /****** FUNCTION PRINTS UNSIGNED NUMBER IN OCTAL  *********/
@@ -56,7 +56,7 @@ int print_unsigned_num_in_octal(char buffer[], va_list types,
 
 	UNUSED(width);
 
-	number = convert_size_unsgnd(number, size);
+	number = convert_size_unsignd(number, size);
 
 	if (number == 0)
 		buffer[a--] = '0';
@@ -74,7 +74,7 @@ int print_unsigned_num_in_octal(char buffer[], va_list types,
 
 	a++;
 
-	return (write_unsgnd(0, a, buffer, precision, flags, size, width));
+	return (write_unsigned(0, a, buffer, precision, flags, size, width));
 }
 /***** PRINT HEXADECIMAL NUMBER IN LOWER OR UPPER *******/
 /**
@@ -90,16 +90,16 @@ int print_unsigned_num_in_octal(char buffer[], va_list types,
  * @flag_ch: Calculates active flags
  * Return: Number of characters printed
  */
-int print_hexa(char buffer[], va_list types, char map_to[],
+int print_hexa(char *, va_list types, char map_to[],
 	char flag_ch, int precision, int flags, int size, int width)
 {
 	int a = BUFF_SIZE - 2;
-	unsigned long int num = va_arg(types, unsigned long int);
+	unsigned long int number = va_arg(types, unsigned long int);
 	unsigned long int init_num = number;
 
 	UNUSED(width);
 
-	number = convert_size_unsgnd(number, size);
+	number = convert_size_unsignd(number, size);
 
 	if (number == 0)
 		buffer[a--] = '0';
@@ -120,7 +120,7 @@ int print_hexa(char buffer[], va_list types, char map_to[],
 
 	a++;
 
-	return (write_unsgnd(0, a, buffer, precision, flags, size, width));
+	return (write_unsigned(0, a, buffer, precision, flags, size, width));
 }
 
 /********* FUNCTION PRINTS UNSIGNED NUMBER IN HEXADECIMAL ********/
@@ -137,7 +137,7 @@ int print_hexa(char buffer[], va_list types, char map_to[],
 int print_unsigned_num_in_hexadecimal(char buffer[], va_list types,
 	int precision, int flags, int size, int width)
 {
-	return (print_hexa(types, "0123456789abcdef", buffer,
+	return (print_hexa(va_list types, char * "0123456789abcdef", buffer,
 		precision, 'x', flags, size, width));
 }
 

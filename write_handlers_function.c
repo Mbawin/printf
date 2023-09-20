@@ -30,7 +30,7 @@ int write_a_number(int is_negative, int ind, char buffer[],
 	else if (flags & F_SPACE)
 		extra_ch = ' ';
 
-	return (write_num(ind, buffer, flags, width, precision,
+	return (write_nums(ind, buffer, flags, width, precision,
 		length, padd, extra_ch));
 }
 
