@@ -2,7 +2,7 @@
 
 /************* PRINTS A STRING ***************/
 /**
- * print_strings - Prints a string
+ * print_string - Prints a string
  * @buffer: Buffer array to handle print
  * @types: List a of arguments
  * @precision: Precision specification
@@ -11,7 +11,7 @@
  * @width: get width
  * Return: Number of chars printed
  */
-int print_strings(char buffer[], va_list types,
+int print_string(char buffer[], va_list types,
 	int precision, int flags, int size, int width)
 {
 	int length = 0, a;
@@ -57,7 +57,7 @@ int print_strings(char buffer[], va_list types,
 }
 /************ PRINTS PERCENTAGE SIGN *****************/
 /**
- * print_percentage - Prints percentage sign
+ * print_percent - Prints percentage sign
  * @buffer: Buffer array to handle print
  * @types: List a of arguments
  * @precision: Precision specification
@@ -66,7 +66,7 @@ int print_strings(char buffer[], va_list types,
  * @width: get width
  * Return: Number of chars printed
  */
-int print_percentage(char buffer[], va_list types,
+int print_percent(char buffer[], va_list types,
 	int precision, int flags, int size, int width)
 {
 	UNUSED(types);
@@ -79,7 +79,7 @@ int print_percentage(char buffer[], va_list types,
 }
 /************ PRINTS A CHARACTER ************/
 /**
- * print_chars - Prints a character
+ * print_char - Prints a character
  * @buffer: Buffer array to handle print
  * @types: List a of arguments
  * @precision: Precision specification
@@ -88,12 +88,12 @@ int print_percentage(char buffer[], va_list types,
  * @width: Width
  * Return: Number of chars printed
  */
-int print_chars(char buffer[], va_list types,
+int print_char(char buffer[], va_list types,
 	int precision, int flags, int size, int width)
 {
 	char b = va_arg(types, int);
 
-	return (handle_write_char(b, buffer, precision, flags, size, width));
+	return (handle_write_chars(b, buffer, precision, flags, size, width));
 }
 /************** PRINTS A BINARY ****************/
 /**
@@ -159,7 +159,7 @@ int print_int(char buffer[], va_list types,
 	long int m = va_arg(types, long int);
 	unsigned long int num;
 
-	m = convert_size_number(n, size);
+	m = convert_size_number(m, size);
 
 	if (m == 0)
 		buffer[a--] = '0';
@@ -181,5 +181,5 @@ int print_int(char buffer[], va_list types,
 
 	a++;
 
-	return (write_number(is_negative, a, buffer, precision, flags, size, width));
+	return (write_a_number(is_negative, a, buffer, precision, flags, size, width));
 }

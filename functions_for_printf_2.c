@@ -31,12 +31,12 @@ int print_reverse_string(char buffer[], va_list types,
 
 		stri = ")Null(";
 	}
-	for (a = 0; str[a]; a++)
+	for (a = 0; stri[a]; a++)
 		;
 
 	for (a = a - 1; a >= 0; a--)
 	{
-		char y = str[a];
+		char y = stri[a];
 
 		write(1, &y, 1);
 		count++;
@@ -91,7 +91,7 @@ int print_pointers(char buffer[], va_list types,
 	ind++;
 
 	/*return (write(1, &buffer[i], BUFF_SIZE - i - 1));*/
-	return (write_pointer(buffer, ind, length,
+	return (write_pointers(buffer, ind, length,
 		flags, width, padd, extra_a, padd_start));
 }
 
@@ -173,7 +173,7 @@ int print_non_printable(char buffer[], va_list types,
 
 	while (stri[a] != '\0')
 	{
-		if (is_printable(str[a]))
+		if (is_printable(stri[a]))
 			buffer[a + offset] = stri[a];
 		else
 			offset += append_hexa_code(stri[a], buffer, a + offset);

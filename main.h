@@ -45,11 +45,11 @@ struct fmt
 /****** FUNCTIONS FOR PRINTF*********/
 
 /* Funtions to print chars and strings */
-int print_chars(char buffer[], va_list types,
+int print_char(char buffer[], va_list types,
 	int precision, int flags, int size, int width);
-int print_strings(char buffer[], va_list types,
+int print_string(char buffer[], va_list types,
 	int precision, int flags, int size, int width);
-int print_percentage(char buffer[], va_list types,
+int print_percent(char buffer[], va_list types,
 	int precision, int flags, int size, int width);
 
 /* Function to print non printable characters */
@@ -71,13 +71,13 @@ int print_int(char buffer[], va_list types,
 	int precision, int flags, int size, int width);
 int print_binary(char buffer[], va_list types,
 	int precision, int flags, int size, int width);
-int print_unsigned_number(char buffer[], va_list types,
+int print_unsigned(char buffer[], va_list types,
 	int precision, int flags, int size, int width);
-int print_unsigned_num_in_octal(char buffer[], va_list types,
+int print_octal(char buffer[], va_list types,
 	int precision, int flags, int size, int width);
-int print_unsigned_num_in_hexadecimal(char buffer[], va_list types,
+int print_hexadecimal(char buffer[], va_list types,
 	int precision, int flags, int size, int width);
-int print_upper_hexa(char buffer[], va_list types,
+int print_hexa_upper(char buffer[], va_list types,
 	int precision, int flags, int size, int width);
 
 int print_hexa(char buffer[], va_list types, char map_to[],
